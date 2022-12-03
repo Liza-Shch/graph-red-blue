@@ -1,24 +1,15 @@
 import React from 'react';
-import logo from './logo.svg';
+import GraphInput from './components/GraphInput';
+
 import './App.css';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.tsx</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <h1>Check if a graph is red-blue colorable!</h1>
+      <h2>Enter here paths of your graph in format a-b-c</h2>
+      <h3>where a word is a node, a dash an edge and a new line or a comma a separation between paths</h3>
+      <GraphInput />
     </div>
   );
 }
