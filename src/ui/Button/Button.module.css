@@ -1,0 +1,9 @@
+.wrapper {
+    padding: 20px;
+    border-radius: 20px;
+    min-width: 200px;
+    box-sizing: border-box;
+    cursor: pointer;
+    background-color: #e63946;
+    color: #f1faee;
+}
