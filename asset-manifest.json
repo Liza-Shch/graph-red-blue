@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/graph-red-blue/static/css/main.2d943585.css",
+    "main.js": "/graph-red-blue/static/js/main.c6fd5613.js",
+    "index.html": "/graph-red-blue/index.html",
+    "main.2d943585.css.map": "/graph-red-blue/static/css/main.2d943585.css.map",
+    "main.c6fd5613.js.map": "/graph-red-blue/static/js/main.c6fd5613.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.2d943585.css",
+    "static/js/main.c6fd5613.js"
+  ]
+}
