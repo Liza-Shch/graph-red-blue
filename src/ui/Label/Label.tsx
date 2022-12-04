@@ -1,5 +1,7 @@
 import React from 'react';
 
+import styles from './Label.module.css';
+
 export enum LabelMode {
     success = 'success',
     negative = 'negaive',
@@ -13,7 +15,7 @@ interface LabelProps {
 
 export const Label: React.FC<LabelProps> = ({ text, mode }) => {
     return (
-        <div>
+        <div className={styles.wrapper}>
             {text}
         </div>
     );

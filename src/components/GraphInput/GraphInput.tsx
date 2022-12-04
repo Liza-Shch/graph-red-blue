@@ -2,6 +2,7 @@ import React from 'react';
 import { checkGraphIsTwoColor, getGraph } from '../../models/graph';
 import Button from '../../ui/Button';
 import Label, { LabelMode } from '../../ui/Label';
+import Margin from '../../ui/Margin';
 import Textarea from '../../ui/Textarea';
 
 import styles from './GraphInput.module.css';
@@ -53,13 +54,19 @@ export const GraphInput: React.FC<{}> = () => {
 
     return (
         <div className={styles.wrapper}>
-            <Textarea placeholder="Enter a graph" ref={ref} onChange={onGraphChange} />
+            <div className={styles.textarea}>
+               <Textarea placeholder="Enter a graph" ref={ref} onChange={onGraphChange} /> 
+            </div>
+            <Margin x={20} />
             <Button text="Check" onClick={onGraphInput} />
             {(isTwoColor !== null || error) && (
-                <Label
-                    text={labelTexts[labelMode]}
-                    mode={labelMode}
-                />
+                <>
+                    <Margin x={40} />
+                    <Label
+                        text={labelTexts[labelMode]}
+                        mode={labelMode}
+                    />
+                </>
             )}
         </div>
     );
