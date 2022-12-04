@@ -7,10 +7,8 @@ interface ButtonProps {
     onClick: () => void;
 }
 
-export const Button: React.FC<ButtonProps> = ({ text, onClick }) => {
-    return (
-        <div className={styles.wrapper} onClick={onClick}>
-            {text}
-        </div>
-    );
-};
+export const Button: React.FC<ButtonProps> = ({ text, onClick }) => (
+    <div className={styles.wrapper} onClick={onClick}>
+        {text}
+    </div>
+);

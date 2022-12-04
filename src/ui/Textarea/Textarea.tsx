@@ -8,8 +8,12 @@ interface TextareaProps {
     onChange?: React.ChangeEventHandler;
 }
 
-export const Textarea = React.forwardRef(({ placeholder, value, onChange }: TextareaProps, ref: React.ForwardedRef<HTMLTextAreaElement>) => {
-    return (
-        <textarea placeholder={placeholder} className={styles.wrapper} ref={ref} value={value} onChange={onChange}/>
-    );
-});
+export const Textarea = React.forwardRef(({ placeholder, value, onChange }: TextareaProps, ref: React.ForwardedRef<HTMLTextAreaElement>) => (
+    <textarea
+        placeholder={placeholder}
+        className={styles.wrapper}
+        ref={ref}
+        value={value}
+        onChange={onChange}
+    />
+));
