@@ -4,8 +4,6 @@ interface MarginProps {
     x: number;
 }
 
-export const Margin: React.FC<MarginProps> = ({ x }) => {
-    return (
-        <div style={{ height: `${x}px`}}/>
-    );
-}
+export const Margin: React.FC<MarginProps> = ({ x }) => (
+    <div style={{ height: `${x}px`}}/>
+);

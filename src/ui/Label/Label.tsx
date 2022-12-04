@@ -13,10 +13,8 @@ interface LabelProps {
     mode: LabelMode;
 }
 
-export const Label: React.FC<LabelProps> = ({ text, mode }) => {
-    return (
-        <div className={styles.wrapper}>
-            {text}
-        </div>
-    );
-};
+export const Label: React.FC<LabelProps> = ({ text, mode }) => (
+    <div className={styles.wrapper}>
+        {text}
+    </div>
+);
