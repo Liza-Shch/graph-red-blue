@@ -1,4 +1,11 @@
-export const getGraph = (input: string): Record<string, Set<string>> | null => {
+type Graph = Record<string, Set<string>>;
+
+const addEdge = (graph: Graph, vertix: string, node: string) => {
+    graph[vertix] ??= new Set<string>();
+    graph[vertix].add(node);
+}
+
+export const getGraph = (input: string): Graph | null => {
     const graph: Record<string, Set<string>> = {};
     const rawEdges = input.trim().split(/[,\n]/).map((str) => str.trim());
     for (const str of rawEdges) {
@@ -21,8 +28,8 @@ export const getGraph = (input: string): Record<string, Set<string>> | null => {
             if (!headNode) {
                 headNode = node;
             } else {
-                graph[headNode] ??= new Set<string>();
-                graph[headNode].add(node);
+                addEdge(graph, headNode, node);
+                addEdge(graph, node, headNode);
                 headNode = node;
             }
         }
@@ -31,6 +38,40 @@ export const getGraph = (input: string): Record<string, Set<string>> | null => {
     return graph;
 };
 
-export const checkGraphIsTwoColor = () => {
+export const checkGraphIsTwoColor = (graph: Graph): boolean => {
+    const queue: string[] = [];
+    const colors: Record<string, number> = {};
+    const vertixes = Object.keys(graph);
+    // graph with less than 2 nodes
+    if (vertixes.length < 2) {
+        return false;
+    }
 
+    const start = vertixes[0];
+    colors[start] = -1;
+    queue.push(start);
+
+    while (queue.length > 0) {
+        const vertix = queue.shift() as string;
+        const color = colors[vertix] === 1 ? -1 : 1;
+        let hasSameColor = false;
+
+        graph[vertix].forEach((node) => {
+            if (!colors[node]) {
+                colors[node] = color;
+                queue.push(node);
+            } else {
+                if (colors[node] === colors[vertix]) {
+                    hasSameColor = true;
+                }
+            }
+        });
+
+        if (hasSameColor) {
+            return false;
+        }
+    }
+
+    // check if graph is connected
+    return Object.keys(colors).length === vertixes.length;
 };
